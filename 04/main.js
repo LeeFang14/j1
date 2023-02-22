@@ -5,9 +5,16 @@
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
+import {
+  isNumber,
+  isInteger,
+  isPositiveInt,
+  isPlusZero,
+  isMinusZero,
+} from "../modules/verify.js";
 
-function askQuestion() {
-  rl.question("請輸入一個正整數: ", isPositiveInt);
+function getUserInput() {
+  rl.question("請輸入一個正整數: ", main);
 }
 
 // 排除掉負數和小數，只接受正整數。
@@ -22,24 +29,21 @@ function isPositiveInt(input) {
   }
 }
 
-// 將輸入者的資料輸出成陣列，如果 > 1 的奇數圈，要乘以(-1)。
-function getAnswer(num) {
-  let getAnswerArr = [];
-  for (let i = 1; i <= num; i++) {
-    if (i > 1 && i % 2 !== 0) {
-      getAnswerArr.push(i * -1);
-    } else {
-      getAnswerArr.push(i);
-    }
-  }
-  // sumAnswer(getAnswerArr);
-  return getAnswerArr;
+function main(input) {}
+try {
+  isNumber(input);
+  isPlusZero(input);
+  isMinusZero(input);
+  const UserAnswer = Number(input);
+  isInteger(UserAnswer);
+  isPositiveInt(UserAnswer);
+
+  const result = UserAnswer !== 0 ? "照常播放電影" : "不播放電影";
+  console.log(result);
+  rl.close();
+} catch (error) {
+  console.log(`${error.message}，請重新輸入`);
+  getUserInput();
 }
 
-// 加總拿到的值，用array Methods reduce
-function sumAnswer(arr) {
-  const sumArrValue = arr.reduce((add, num) => add + num, 0);
-  console.log(sumArrValue);
-  rl.close();
-}
-askQuestion();
+getUserInput();

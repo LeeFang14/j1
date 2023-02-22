@@ -5,30 +5,36 @@
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
+import {
+  isNumber,
+  isInteger,
+  isPositiveInt,
+  isPlusZero,
+  isMinusZero,
+} from "../modules/verify.js";
 
-function askQuestion() {
-  rl.question("請輸入您的年齡: ", isPositiveInt);
+function getUserInput() {
+  rl.question("請輸入您的年齡: ", main);
 }
 
-// 排除掉負數和小數，只接受正整數。
-function isPositiveInt(answer) {
-  const age = Number(answer);
-  if (age < 0 || age % 1 !== 0) {
-    console.log("輸入錯誤，請重新輸入。");
-    askQuestion();
-  } else {
-    getPrice(age);
+function main(input) {
+  try {
+    isNumber(input);
+    isPlusZero(input);
+    isMinusZero(input);
+    const UserAnswer = Number(input);
+    isInteger(UserAnswer);
+    isPositiveInt(UserAnswer);
+    const result =
+      UserAnswer > 6 && UserAnswer < 65
+        ? "票價: 400元(全票)"
+        : "票價: 200元(半票)";
+    console.log(result);
+    rl.close();
+  } catch (error) {
+    console.log(`${error.message}，請重新輸入`);
+    getUserInput();
   }
 }
 
-// 判斷價格
-function getPrice(age) {
-  if (age > 6 && age < 65) {
-    console.log("票價:400元");
-  } else {
-    console.log("票價:200元");
-  }
-  rl.close();
-}
-
-askQuestion();
+getUserInput();

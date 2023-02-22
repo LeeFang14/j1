@@ -1,8 +1,8 @@
 {
-  "name": "JS17question",
-  "type": "module",
+  "name": "j1",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest"
