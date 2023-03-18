@@ -6,31 +6,30 @@ import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
 import {
   isNumber,
-  isInteger,
-  isPositiveInt,
   isPlusZero,
   isMinusZero,
+  isInteger,
+  isPositiveInt,
 } from "../modules/verify.js";
+import { isPlayMovie } from "./isPlayMovie.js";
 
-function getUserInput() {
-  rl.question("請輸入看電影人數: ", main);
+function main() {
+  rl.question("請輸入看電影人數: ", (input) => {
+    try {
+      isNumber(input);
+      isPlusZero(input);
+      isMinusZero(input);
+      const UserAnswer = Number(input);
+      isInteger(UserAnswer);
+      isPositiveInt(UserAnswer);
+      rl.close();
+      const result = isPlayMovie(UserAnswer);
+      console.log(result);
+    } catch (error) {
+      console.log(`${error.message}，請重新輸入`);
+      main();
+    }
+  });
 }
 
-function main(input) {
-  try {
-    isNumber(input);
-    isPlusZero(input);
-    isMinusZero(input);
-    const UserAnswer = Number(input);
-    isInteger(UserAnswer);
-    isPositiveInt(UserAnswer);
-    const result = UserAnswer !== 0 ? "照常播放電影" : "不播放電影";
-    console.log(result);
-    rl.close();
-  } catch (error) {
-    console.log(`${error.message}，請重新輸入`);
-    getUserInput();
-  }
-}
-
-getUserInput();
+main();

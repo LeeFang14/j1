@@ -47,3 +47,27 @@ function sumAnswer(arr) {
 }
 
 askQuestion();
+
+/* 遞迴寫法
+// 把!n放到陣列裡。
+function factorial(num) {
+  let array = [];
+  if (num === 1) {
+    array.push(num);
+    return array;
+  } else {
+    array.push(num);
+    return array.concat(factorial(num - 1));
+  }
+}
+
+// 從後面印出
+function printArray(num) {
+  for (let i = num.length - 1; i >= 0; i--) {
+    console.log(num[i]);
+  }
+}
+
+const newArray = factorial(5);
+printArray(newArray);
+*/

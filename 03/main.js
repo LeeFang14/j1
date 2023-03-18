@@ -7,34 +7,30 @@ import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
 import {
   isNumber,
-  isInteger,
-  isPositiveInt,
   isPlusZero,
   isMinusZero,
+  isInteger,
+  isPositiveInt,
 } from "../modules/verify.js";
+import { getTicketPrice } from "./getTicketPrice.js";
 
-function getUserInput() {
-  rl.question("請輸入您的年齡: ", main);
+function main() {
+  rl.question("請輸入您的年齡: ", (input) => {
+    try {
+      isNumber(input);
+      isPlusZero(input);
+      isMinusZero(input);
+      const UserAnswer = Number(input);
+      isInteger(UserAnswer);
+      isPositiveInt(UserAnswer);
+      rl.close();
+      const result = getTicketPrice(UserAnswer);
+      console.log(result);
+    } catch (error) {
+      console.log(`${error.message}，請重新輸入`);
+      main();
+    }
+  });
 }
 
-function main(input) {
-  try {
-    isNumber(input);
-    isPlusZero(input);
-    isMinusZero(input);
-    const UserAnswer = Number(input);
-    isInteger(UserAnswer);
-    isPositiveInt(UserAnswer);
-    const result =
-      UserAnswer > 6 && UserAnswer < 65
-        ? "票價: 400元(全票)"
-        : "票價: 200元(半票)";
-    console.log(result);
-    rl.close();
-  } catch (error) {
-    console.log(`${error.message}，請重新輸入`);
-    getUserInput();
-  }
-}
-
-getUserInput();
+main();

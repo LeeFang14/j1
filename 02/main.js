@@ -5,35 +5,40 @@
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
+import { isNumber, isPlusZero, isMinusZero } from "../modules/verify.js";
 
-function askFirstQuestion() {
-  rl.question("請輸入第一個數字: ", askSecondQuestion);
-}
-
-// 拿答案
-function askSecondQuestion(answerOne) {
-  rl.question("請輸入第二個數字: ", (answerTwo) => {
-    // 判斷是不是數字
-    if (isNaN(answerOne) || isNaN(answerTwo)) {
-      console.log("輸入錯誤，請重新輸入。");
-      askFirstQuestion();
-    } else {
-      // mod 會轉型成數字
-      const first = answerOne % 3;
-      const second = answerTwo % 3;
-      isEqual(first, second);
+function main() {
+  let q1;
+  let q2;
+  rl.question("請輸入第一個數字: ", (answerOne) => {
+    try {
+      isNumber(answerOne);
+      isPlusZero(answerOne);
+      isMinusZero(answerOne);
+      q1 = answerOne;
+      q2();
+      function q2() {
+        rl.question("請輸入第二個數字: ", (answerTwo) => {
+          try {
+            isNumber(answerTwo);
+            isPlusZero(answerTwo);
+            isMinusZero(answerTwo);
+            rl.close();
+            const first = answerOne % 3;
+            const second = answerTwo % 3;
+            const result = first === second ? "餘數相同" : "餘數不同";
+            console.log(result);
+          } catch (error) {
+            console.log(`${error.message}，請重新輸入`);
+            q2();
+          }
+        });
+      }
+    } catch (error) {
+      console.log(`${error.message}，請重新輸入`);
+      main();
     }
   });
 }
 
-// 判斷是否一樣
-function isEqual(first, second) {
-  if (first === second) {
-    console.log("餘數相同");
-  } else {
-    console.log("餘數不同");
-  }
-  rl.close();
-}
-
-askFirstQuestion();
+main();

@@ -4,8 +4,11 @@ import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
 
-function askQuestion() {
-  rl.question("請輸入看電影人數: ", isPositiveInt);
+function main() {
+  rl.question("question? ", (answer) => {
+    console.log(answer);
+    rl.close();
+  });
 }
 
-askQuestion();
+main();

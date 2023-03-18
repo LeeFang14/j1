@@ -4,21 +4,6 @@ function isNumber(n) {
     throw new Error("這不是數字");
   }
 }
-
-// 排除小數點，包含負數。
-function isInteger(n) {
-  if (!Number.isInteger(n)) {
-    throw new Error("這不是整數");
-  }
-}
-
-// 排除負數
-function isPositiveInt(n) {
-  if (n < 0) {
-    throw new Error("這不是正數");
-  }
-}
-
 // 排除+0
 function isPlusZero(n) {
   if (n === "+0") {
@@ -33,4 +18,18 @@ function isMinusZero(n) {
   }
 }
 
-export { isNumber, isInteger, isPositiveInt, isPlusZero, isMinusZero };
+// 排除小數點
+function isInteger(n) {
+  if (!Number.isInteger(n)) {
+    throw new Error("這不是整數");
+  }
+}
+
+// 排除負數
+function isPositiveInt(n) {
+  if (n < 0) {
+    throw new Error("這不是正數");
+  }
+}
+
+export { isNumber, isPlusZero, isMinusZero, isInteger, isPositiveInt };
