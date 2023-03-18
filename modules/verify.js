@@ -32,4 +32,24 @@ function isPositiveInt(n) {
   }
 }
 
-export { isNumber, isPlusZero, isMinusZero, isInteger, isPositiveInt };
+function isOverFour(n) {
+  if (n < 4) {
+    throw new Error("這沒有大於4");
+  }
+}
+
+function isEven(n) {
+  if (!(n % 2 === 0)) {
+    throw new Error("這不是偶數");
+  }
+}
+
+export {
+  isNumber,
+  isPlusZero,
+  isMinusZero,
+  isInteger,
+  isPositiveInt,
+  isOverFour,
+  isEven,
+};
