@@ -2,7 +2,6 @@
 
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
-const rl = readline.createInterface({ input, output });
 import {
   isNumber,
   isInteger,
@@ -15,6 +14,7 @@ import {
   generateFormula,
   calculateSum,
 } from "./calculate.js";
+const rl = readline.createInterface({ input, output });
 
 function main() {
   rl.question("請輸入一個正整數: ", (input) => {
@@ -22,11 +22,11 @@ function main() {
       isNumber(input);
       isPlusZero(input);
       isMinusZero(input);
-      const UserAnswer = Number(input);
-      isInteger(UserAnswer);
-      isPositiveInt(UserAnswer);
+      input = Number(input);
+      isInteger(input);
+      isPositiveInt(input);
       rl.close();
-      const numArr = generateSequence(UserAnswer);
+      const numArr = generateSequence(input);
       const formulaStr = generateFormula(numArr);
       console.log("算式:", formulaStr);
       const result = calculateSum(numArr);

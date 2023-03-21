@@ -4,19 +4,19 @@
 
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
-const rl = readline.createInterface({ input, output });
 import { isNumber, isOverFour, isEven } from "../modules/verify.js";
 import { umlEven, calculateSum } from "./calculate.js";
+const rl = readline.createInterface({ input, output });
 
 function main() {
   rl.question("請輸入包含4以上的正偶數: ", (input) => {
     try {
       isNumber(input);
-      const UserAnswer = Number(input);
-      isOverFour(UserAnswer);
-      isEven(UserAnswer);
+      input = Number(input);
+      isOverFour(input);
+      isEven(input);
       rl.close();
-      const umlEvenArr = umlEven(UserAnswer).reverse();
+      const umlEvenArr = umlEven(input).reverse();
       const result = calculateSum(umlEvenArr);
       console.log(result);
     } catch (error) {
