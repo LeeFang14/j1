@@ -2,36 +2,40 @@
 
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
+import { isEnglish } from "../modules/verify.js";
+import { countLetter, printSingleLetter } from "./countLetter.js";
 const rl = readline.createInterface({ input, output });
 
-const Q1 = "請輸入第一個英文名字: ";
-const Q2 = "請輸入第二個英文名字: ";
-const Q3 = "請輸入第三個英文名字: ";
-const Q4 = "請輸入第四個英文名字: ";
-
-const questionArr = [Q1, Q2, Q3, Q4];
-let name = [];
-const askQuestion = (i) => {
-  if (i < questionArr.length) {
-    rl.question(questionArr[i], (answer) => {
-      name.push(answer);
-      askQuestion(i + 1);
+function main() {
+  function getAnswerArr(num, answers, callback) {
+    rl.question(`請輸入4個英文名字，第${num}個: `, (answer) => {
+      try {
+        isEnglish(answer);
+        answers.push(answer);
+        if (num < 4) {
+          getAnswerArr(num + 1, answers, callback);
+        } else {
+          callback(answers);
+          rl.close();
+        }
+      } catch (error) {
+        console.log(`${error.message}，請重新輸入`);
+        getAnswerArr(num, answers, callback);
+      }
     });
-  } else {
-    getOddName(name);
   }
-};
 
-// 錯誤輸入可能會有：空白(例如第三個剛好空白，第四個要補在第三個？還是讓使用者重新輸入？)
-// 只允許輸入英文，A~Z 大小寫要計算重複嗎？
+  getAnswerArr(1, [], (answers) => {
+    // console.log(answers);
 
-function getOddName(a) {
-  // console.log(a);
-  let OddName = a.filter(function (i) {
-    if (i < questionArr.length) {
-    }
+    const NameOne = countLetter(answers[0]);
+    console.log(NameOne);
+    const resultOne = printSingleLetter(NameOne);
+    const NameThree = countLetter(answers[2]);
+    const resultThree = printSingleLetter(NameThree);
+
+    console.log(`${answers[0]} : ${resultOne}\n${answers[2]} : ${resultThree}`);
   });
-  rl.close();
 }
 
-askQuestion(0);
+main();
