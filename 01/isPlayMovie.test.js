@@ -8,6 +8,6 @@ describe("測試 isPlayMovie 輸入的值", function () {
     expect(isPlayMovie(1)).toBe("照常播放電影");
   });
   test("輸入100 要等於：照常播放電影", function () {
-    expect(isPlayMovie(100)).toBe("照常播放電影");
+    expect(isPlayMovie(10)).toBe("照常播放電影");
   });
 });

@@ -5,7 +5,7 @@ import { isPositiveInteger } from "../modules/verify.js";
 const rl = readline.createInterface({ input, output });
 
 function askQuestion(callback) {
-  rl.question("請輸入看電影人數: ", (input) => {
+  rl.question("請輸入您的年齡: ", (input) => {
     try {
       isPositiveInteger(input);
       rl.close();

@@ -1,13 +1,13 @@
 import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
-import { isPositiveInteger } from "../modules/verify.js";
+import { validateInput } from "./validateInput.js";
 
 const rl = readline.createInterface({ input, output });
 
 function askQuestion(callback) {
-  rl.question("請輸入看電影人數: ", (input) => {
+  rl.question("請輸入包含4以上的正偶數: ", (input) => {
     try {
-      isPositiveInteger(input);
+      validateInput(input);
       rl.close();
       callback(input);
     } catch (error) {

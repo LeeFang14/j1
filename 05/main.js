@@ -2,27 +2,14 @@
 // 來求算 2 * 4 + 4 * 6 + 6 * 8...+ (n - 2) * n
 // (n最小為 4, 只會出現偶數)
 
-import * as readline from "node:readline";
-import { stdin as input, stdout as output } from "node:process";
-import { isNumber, isOverFour, isEven } from "../modules/verify.js";
+import { askQuestion } from "./askQuestion.js";
 import { umlEven, calculateSum } from "./calculate.js";
-const rl = readline.createInterface({ input, output });
 
 function main() {
-  rl.question("請輸入包含4以上的正偶數: ", (input) => {
-    try {
-      isNumber(input);
-      input = Number(input);
-      isOverFour(input);
-      isEven(input);
-      rl.close();
-      const umlEvenArr = umlEven(input).reverse();
-      const result = calculateSum(umlEvenArr);
-      console.log(result);
-    } catch (error) {
-      console.log(`${error.message}，請重新輸入`);
-      main();
-    }
+  askQuestion((input) => {
+    const umlEvenArr = umlEven(input).reverse();
+    const result = calculateSum(umlEvenArr);
+    console.log(result);
   });
 }
 main();

@@ -6,7 +6,8 @@ import { askQuestion } from "./askQuestion.js";
 
 function main() {
   askQuestion((input) => {
-    const result = isPlayMovie(input);
+    const num = Number(input);
+    const result = isPlayMovie(num);
     console.log(result);
   });
 }
