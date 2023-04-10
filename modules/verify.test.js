@@ -3,7 +3,7 @@ import {
   isInteger,
   isOverFour,
   isEven,
-  // isEnglish,
+  isEnglish,
 } from "./verify.js";
 
 test("測試 isPositiveInteger 輸入的值", () => {
@@ -43,4 +43,14 @@ test("測試 isEven 輸入的值", () => {
   expect(() => isEven("5")).toThrow("這不是偶數");
   expect(() => isEven("7")).toThrow("這不是偶數");
   expect(() => isEven("9")).toThrow("這不是偶數");
+});
+
+test("測試 isEnglish 輸入的值", () => {
+  expect(() => isEnglish("")).toThrow("這不是英文");
+  expect(() => isEnglish(" ")).toThrow("這不是英文");
+  expect(() => isEnglish("123")).toThrow("這不是英文");
+  expect(() => isEnglish("中文")).toThrow("這不是英文");
+  expect(() => isEnglish("abc123")).toThrow("這不是英文");
+  expect(() => isEnglish("abc中文")).toThrow("這不是英文");
+  expect(() => isEnglish("aaa bbb")).toThrow("這不是英文");
 });
