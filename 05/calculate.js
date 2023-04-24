@@ -1,19 +1,17 @@
-function umlEven(num, resultArr = []) {
-  if (num === 2) {
-    resultArr.push(num);
-    return resultArr;
+export function umlEven(number, resultArray = []) {
+  if (number === 2) {
+    resultArray.push(number);
+    return resultArray;
   } else {
-    resultArr.push(num);
-    return umlEven(num - 2, resultArr);
+    resultArray.push(number);
+    return umlEven(number - 2, resultArray);
   }
 }
 
-function calculateSum(arr) {
-  return arr.reduce(
+export function calculateSum(array) {
+  return array.reduce(
     (accumulator, currentValue) =>
       accumulator + currentValue * (currentValue - 2),
     0
   );
 }
-
-export { umlEven, calculateSum };

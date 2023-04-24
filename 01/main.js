@@ -5,9 +5,9 @@ import { isPlayMovie } from "./isPlayMovie.js";
 import { askQuestion } from "./askQuestion.js";
 
 function main() {
-  askQuestion((input) => {
-    const num = Number(input);
-    const result = isPlayMovie(num);
+  askQuestion("請輸入看電影人數: ", (number) => {
+    const playMovieResult = isPlayMovie(number);
+    const result = playMovieResult ? "不播放電影" : "照常播放電影";
     console.log(result);
   });
 }

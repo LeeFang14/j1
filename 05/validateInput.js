@@ -1,9 +1,7 @@
 import { isPositiveInteger, isOverFour, isEven } from "../modules/verify.js";
 
-function validateInput(input) {
+export function validateInput(input) {
   isPositiveInteger(input);
   isOverFour(input);
   isEven(input);
 }
-
-export { validateInput };

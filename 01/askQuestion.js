@@ -4,17 +4,15 @@ import { isPositiveInteger } from "../modules/verify.js";
 
 const rl = readline.createInterface({ input, output });
 
-function askQuestion(callback) {
-  rl.question("請輸入看電影人數: ", (input) => {
+export function askQuestion(question, callback) {
+  rl.question(question, (input) => {
     try {
       isPositiveInteger(input);
       rl.close();
-      callback(input);
+      callback(Number(input));
     } catch (error) {
       console.log(`${error.message}，請重新輸入`);
-      askQuestion(callback);
+      askQuestion(question, callback);
     }
   });
 }
-
-export { askQuestion };

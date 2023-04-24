@@ -1,34 +1,33 @@
 // 生成陣列(奇數會*-1轉成負數)
-function generateSequence(num) {
-  let resultArr = [];
-  for (let i = 1; i <= num; i++) {
-    if (i > 1 && i % 2 !== 0) {
-      resultArr.push(i * -1);
+export function generateSequence(number) {
+  let resultArray = [];
+  for (let index = 1; index <= number; index++) {
+    if (index > 1 && index % 2 !== 0) {
+      resultArray.push(index * -1);
     } else {
-      resultArr.push(i);
+      resultArray.push(index);
     }
   }
-  return resultArr;
+  return resultArray;
 }
 
-function generateFormula(arr) {
-  let resultStr = "";
-  resultStr = arr[0].toString();
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > 1) {
-      resultStr += "+" + arr[i].toString();
+export function generateFormula(array) {
+  let resultString = "";
+  resultString = array[0].toString();
+  for (let index = 1; index < array.length; index++) {
+    const arrayToString = array[index].toString();
+    if (array[index] > 1) {
+      resultString += "+" + arrayToString;
     } else {
-      resultStr += arr[i].toString();
+      resultString += arrayToString;
     }
   }
-  return resultStr;
+  return resultString;
 }
 
-function calculateSum(arr) {
-  return arr.reduce(
+export function calculateSum(array) {
+  return array.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
 }
-
-export { generateSequence, generateFormula, calculateSum };

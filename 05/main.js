@@ -6,9 +6,10 @@ import { askQuestion } from "./askQuestion.js";
 import { umlEven, calculateSum } from "./calculate.js";
 
 function main() {
-  askQuestion((input) => {
-    const umlEvenArr = umlEven(input).reverse();
-    const result = calculateSum(umlEvenArr);
+  askQuestion((number) => {
+    const umlEvenArray = umlEven(number).reverse();
+    console.log(umlEvenArray);
+    const result = calculateSum(umlEvenArray);
     console.log(result);
   });
 }

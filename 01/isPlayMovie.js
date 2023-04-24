@@ -1,4 +1,3 @@
-function isPlayMovie(num) {
-  return num !== 0 ? "照常播放電影" : "不播放電影";
+export function isPlayMovie(number) {
+  return number !== 0 ? true : false;
 }
-export { isPlayMovie };
