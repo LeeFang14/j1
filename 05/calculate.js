@@ -1,9 +1,9 @@
 export function umlEven(number, resultArray = []) {
   if (number === 2) {
-    resultArray.push(number);
+    resultArray.unshift(number);
     return resultArray;
   } else {
-    resultArray.push(number);
+    resultArray.unshift(number);
     return umlEven(number - 2, resultArray);
   }
 }

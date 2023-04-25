@@ -7,10 +7,9 @@ import { umlEven, calculateSum } from "./calculate.js";
 
 function main() {
   askQuestion((number) => {
-    const umlEvenArray = umlEven(number).reverse();
-    console.log(umlEvenArray);
+    const umlEvenArray = umlEven(number);
     const result = calculateSum(umlEvenArray);
-    console.log(result);
+    console.log("總和: ", result);
   });
 }
 main();
