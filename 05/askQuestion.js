@@ -4,15 +4,16 @@ import { validateInput } from "./validateInput.js";
 
 const rl = readline.createInterface({ input, output });
 
-export function askQuestion(callback) {
-  rl.question("請輸入包含4以上的正偶數: ", (input) => {
+export function askQuestion(query, callback) {
+  rl.question(query, (input) => {
     try {
       validateInput(input);
+      const Verified = Number(input);
+      callback(Verified);
       rl.close();
-      callback(Number(input));
     } catch (error) {
       console.log(`${error.message}，請重新輸入`);
-      askQuestion(callback);
+      askQuestion(query, callback);
     }
   });
 }

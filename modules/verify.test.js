@@ -1,7 +1,7 @@
 import {
   isPositiveInteger,
   isInteger,
-  isOverFour,
+  isOverNumber,
   isEven,
   isEnglish,
 } from "./verify.js";
@@ -38,12 +38,12 @@ describe.each([
 });
 
 describe.each([
-  { input: () => isOverFour("-1"), expected: "數字沒有大於4" },
-  { input: () => isOverFour("0"), expected: "數字沒有大於4" },
-  { input: () => isOverFour("1"), expected: "數字沒有大於4" },
-  { input: () => isOverFour("2"), expected: "數字沒有大於4" },
-  { input: () => isOverFour("3"), expected: "數字沒有大於4" },
-])("測試 isOverFour 輸入的值", ({ input, expected }) => {
+  { input: () => isOverNumber("-1", 4), expected: "數字沒有大於4" },
+  { input: () => isOverNumber("0", 4), expected: "數字沒有大於4" },
+  { input: () => isOverNumber("1", 4), expected: "數字沒有大於4" },
+  { input: () => isOverNumber("2", 4), expected: "數字沒有大於4" },
+  { input: () => isOverNumber("3", 4), expected: "數字沒有大於4" },
+])("測試 isOverNumber 輸入的值", ({ input, expected }) => {
   test(`returns ${expected}`, () => {
     expect(input).toThrow(expected);
   });
@@ -59,16 +59,6 @@ describe.each([
   test(`returns ${expected}`, () => {
     expect(input).toThrow(expected);
   });
-});
-
-test("測試 isEnglish 輸入的值", () => {
-  expect(() => isEnglish("")).toThrow("這不是英文");
-  expect(() => isEnglish(" ")).toThrow("這不是英文");
-  expect(() => isEnglish("123")).toThrow("這不是英文");
-  expect(() => isEnglish("中文")).toThrow("這不是英文");
-  expect(() => isEnglish("abc123")).toThrow("這不是英文");
-  expect(() => isEnglish("abc中文")).toThrow("這不是英文");
-  expect(() => isEnglish("aaa bbb")).toThrow("這不是英文");
 });
 
 describe.each([

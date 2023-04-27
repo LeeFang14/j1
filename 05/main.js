@@ -6,7 +6,7 @@ import { askQuestion } from "./askQuestion.js";
 import { umlEven, calculateSum } from "./calculate.js";
 
 function main() {
-  askQuestion((number) => {
+  askQuestion("請輸入包含4以上的正偶數: ", (number) => {
     const umlEvenArray = umlEven(number);
     const result = calculateSum(umlEvenArray);
     console.log("總和: ", result);

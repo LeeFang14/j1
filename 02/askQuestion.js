@@ -9,12 +9,13 @@ export function askQuestion(num, answers, callback) {
     const questionTotal = 2;
     try {
       isInteger(input);
-      answers.push(Number(input));
+      const Verified = Number(input);
+      answers.push(Verified);
       if (num < questionTotal) {
         askQuestion(num + 1, answers, callback);
       } else {
-        rl.close();
         callback(answers);
+        rl.close();
       }
     } catch (error) {
       console.log(`${error.message}，請重新輸入`);
