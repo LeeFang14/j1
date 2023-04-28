@@ -27,7 +27,7 @@ export function isEven(string) {
 }
 
 export function isEnglish(string) {
-  if (!/^[a-zA-Z]+$/.test(string)) {
+  if (!/^[A-Za-z ]+$/.test(string)) {
     throw new Error("這不是英文");
   }
 }

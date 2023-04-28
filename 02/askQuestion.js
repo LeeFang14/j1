@@ -4,22 +4,22 @@ import { isInteger } from "../modules/verify.js";
 
 const rl = readline.createInterface({ input, output });
 
-export function askQuestion(num, answers, callback) {
+export function askQuestion(num, inputArray, printResult) {
   rl.question(`第${num}個: `, (input) => {
-    const questionTotal = 2;
+    const questionInputNumber = 2;
     try {
       isInteger(input);
-      const Verified = Number(input);
-      answers.push(Verified);
-      if (num < questionTotal) {
-        askQuestion(num + 1, answers, callback);
+      const verified = Number(input);
+      inputArray.push(verified);
+      if (num < questionInputNumber) {
+        askQuestion(num + 1, inputArray, printResult);
       } else {
-        callback(answers);
+        printResult(inputArray);
         rl.close();
       }
     } catch (error) {
       console.log(`${error.message}，請重新輸入`);
-      askQuestion(num, answers, callback);
+      askQuestion(num, inputArray, printResult);
     }
   });
 }

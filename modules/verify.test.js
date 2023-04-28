@@ -68,7 +68,6 @@ describe.each([
   { input: () => isEnglish("中文"), expected: "這不是英文" },
   { input: () => isEnglish("abc123"), expected: "這不是英文" },
   { input: () => isEnglish("abc中文"), expected: "這不是英文" },
-  { input: () => isEnglish("aaa bbb"), expected: "這不是英文" },
 ])("測試 isEnglish 輸入的值", ({ input, expected }) => {
   test(`returns ${expected}`, () => {
     expect(input).toThrow(expected);
