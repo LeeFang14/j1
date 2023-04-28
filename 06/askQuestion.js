@@ -4,22 +4,21 @@ import { isEnglish } from "../modules/verify.js";
 
 const rl = readline.createInterface({ input, output });
 
-function askQuestion(num, answers, callback) {
-  rl.question(`第${num}個: `, (input) => {
+export function askQuestion(number, inputArray, callback) {
+  rl.question(`第${number}個:`, (input) => {
+    const questionInputNumber = 4;
     try {
       isEnglish(input);
-      answers.push(input);
-      if (num < 4) {
-        askQuestion(num + 1, answers, callback);
+      inputArray.push(input);
+      if (number < questionInputNumber) {
+        askQuestion(number + 1, inputArray, callback);
       } else {
-        callback(answers);
+        callback(inputArray);
         rl.close();
       }
     } catch (error) {
       console.log(`${error.message}，請重新輸入`);
-      askQuestion(num, answers, callback);
+      askQuestion(number, inputArray, callback);
     }
   });
 }
-
-export { askQuestion };

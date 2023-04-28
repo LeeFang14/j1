@@ -3,15 +3,9 @@
 //    arr2[0]~arr2[4] 分別設值為 8, 7, 9, 3, 1，
 //    將 arr1 與 arr2 兩陣列對應項相加，列印出相加後的陣列
 
-import * as readline from "node:readline";
-import { stdin as input, stdout as output } from "node:process";
-const rl = readline.createInterface({ input, output });
-
 function main() {
-  rl.question("question? ", (answer) => {
-    console.log(answer);
-    rl.close();
-  });
+  const arr1 = [];
+  const arr2 = [];
 }
 
 main();

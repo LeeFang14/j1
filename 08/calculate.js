@@ -1,10 +1,13 @@
-function divi(n, times = 1) {
-  let num = n / 3;
-  if (Math.floor(num * 100) % 10 === 0) {
+export function divi(num, divisor, times = 1) {
+  let number = num / divisor;
+  if (Math.floor(number * 100) % 10 === 0) {
     return times;
   } else {
-    return divi(num, times + 1);
+    return divi(number, divisor, times + 1);
   }
 }
 
-export { divi };
+console.log(divi(1, 3));
+console.log(divi(2, 3));
+console.log(divi(5, 3));
+console.log(divi(10, 3));

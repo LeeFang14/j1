@@ -5,10 +5,9 @@ import { askQuestion } from "./askQuestion.js";
 import { divi } from "./calculate.js";
 
 function main() {
-  askQuestion((input) => {
-    const userAnswer = Number(input);
-    const result = divi(userAnswer);
-    console.log(`最少除 ${result} 次`);
+  askQuestion("請輸入一個正整數: ", (number) => {
+    const result = divi(number, 3);
+    console.log(`最少要除 ${result} 次`);
   });
 }
 
