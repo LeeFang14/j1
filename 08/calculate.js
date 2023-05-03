@@ -6,8 +6,3 @@ export function divi(num, divisor, times = 1) {
     return divi(number, divisor, times + 1);
   }
 }
-
-console.log(divi(1, 3));
-console.log(divi(2, 3));
-console.log(divi(5, 3));
-console.log(divi(10, 3));
