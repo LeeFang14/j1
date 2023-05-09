@@ -11,4 +11,3 @@ export function parseArrayToString(array) {
   stringPattern = rowArray.join("\n");
   return stringPattern;
 }
-

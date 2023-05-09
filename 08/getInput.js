@@ -1,4 +1,4 @@
-import { isPositiveInteger } from "../../modules/verify.js";
+import { isPositiveInteger } from "../modules/verify.js";
 import { rl } from "./askQuestion.js";
 import { main } from "./main.js";
 

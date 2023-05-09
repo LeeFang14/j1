@@ -1,16 +1,16 @@
 // 7. 印出下圖，並轉 90°
-//   ** **  
-//  ******* 
+//   ** **
+//  *******
 // *********
 // *********
-//  ******* 
-//   *****  
-//    ***   
+//  *******
+//   *****
+//    ***
 //     *
 // -------------------------------
-import { parseStringToArray } from "./parseStringToArray.js"
-import { rotateArray } from "./rotateArray.js"
-import { parseArrayToString } from "./parseArrayToString.js"
+import { parseStringToArray } from "./parseStringToArray.js";
+import { rotateArray } from "./rotateArray.js";
+import { parseArrayToString } from "./parseArrayToString.js";
 
 const originString1 = `  ** **
  *******
@@ -19,14 +19,14 @@ const originString1 = `  ** **
  *******
   *****
    ***
-    *`
+    *`;
 
 const originString2 = `***** *****
 ****   ****
 ***     ***
 **       **
 ****   ****
-****   ****`
+****   ****`;
 
 const originString3 = `*******
 *     *
@@ -34,9 +34,22 @@ const originString3 = `*******
 **   **
 **   **
 *     *
-*******`
+*******`;
 
+const originString4 = `  ***
+  ***
+  ***
+  ***     *
+  ***     **
+  ***     ***
+  ************`;
 
+const originString5 = `      *
+     ***
+    *****
+   *******
+  *********
+ ***********`;
 
 function main(stringPattern) {
   console.log("原圖:");
@@ -48,4 +61,4 @@ function main(stringPattern) {
   console.log(result);
 }
 
-main(originString1);
+main(originString5);

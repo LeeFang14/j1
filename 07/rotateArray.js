@@ -2,10 +2,10 @@ export function rotateArray(array) {
   const rowCount = array.length;
   const columnCount = array[0].length;
   const rotatedArray = [];
-  for (let i = 0; i < columnCount; i++) {
+  for (let j = 0; j < columnCount; j++) {
     const newRow = [];
-    for (let j = rowCount - 1; j >= 0; j--) {
-      newRow.push(array[j][i]);
+    for (let i = rowCount - 1; i >= 0; i--) {
+      newRow.push(array[i][j]);
     }
     rotatedArray.push(newRow);
   }

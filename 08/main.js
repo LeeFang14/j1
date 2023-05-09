@@ -4,6 +4,7 @@
 
 import { askQuestion } from "./askQuestion.js";
 import { divi } from "./calculate.js";
+import { getInput } from "./getInput.js";
 
 export function main() {
   const question = askQuestion("請輸入一個正整數: ");

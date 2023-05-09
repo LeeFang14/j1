@@ -1,4 +1,4 @@
-// 可以得到小於等於n的所有質數
+// 可以得到小於等於number的所有質數
 export function getAllPrimesArray(number) {
   const isPrime = new Array(number).fill(true);
 
@@ -11,9 +11,9 @@ export function getAllPrimesArray(number) {
   }
 
   const primeArray = [];
-  for (let i = 2; i < number; i++) {
-    if (isPrime[i]) {
-      primeArray.push(i);
+  for (let index = 2; index < number; index++) {
+    if (isPrime[index]) {
+      primeArray.push(index);
     }
   }
 

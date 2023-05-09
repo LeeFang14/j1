@@ -1,5 +1,5 @@
-export function divi(num, divisor, times = 1) {
-  let number = num / divisor;
+export function divi(originNumber, divisor, times = 1) {
+  let number = originNumber / divisor;
   if (Math.floor(number * 100) % 10 === 0) {
     return times;
   } else {
