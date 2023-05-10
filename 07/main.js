@@ -61,4 +61,6 @@ function main(stringPattern) {
   console.log(result);
 }
 
-main(originString5);
+main(originString1);
+main(originString2);
+main(originString3);

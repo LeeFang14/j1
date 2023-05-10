@@ -1,3 +1,5 @@
+debugger;
+
 export function rotateArray(array) {
   const rowCount = array.length;
   const columnCount = array[0].length;
@@ -11,3 +13,14 @@ export function rotateArray(array) {
   }
   return rotatedArray;
 }
+
+rotateArray([
+  [" ", " ", "*", "*", " ", "*", "*", " ", " "],
+  [" ", "*", "*", "*", "*", "*", "*", "*", " "],
+  ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+  [" ", "*", "*", "*", "*", "*", "*", "*", " "],
+  [" ", " ", "*", "*", "*", "*", "*", " ", " "],
+  [" ", " ", " ", "*", "*", "*", " ", " ", " "],
+  [" ", " ", " ", " ", "*", " ", " ", " ", " "],
+]);

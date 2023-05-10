@@ -3,12 +3,13 @@
 //    arr1[0]~arr1[4] 分別設值為 2, 3, 1, 7, 9，
 //    arr2[0]~arr2[4] 分別設值為 8, 7, 9, 3, 1，
 //    將 arr1 與 arr2 兩陣列對應項相加，列印出相加後的陣列
-import { arraySum } from "./arraySum.js";
+debugger;
+import { sumArray } from "./sumArray.js";
 
 function main() {
   const array1 = [2, 3, 1, 7, 9];
   const array2 = [8, 7, 9, 3, 1];
-  const result = arraySum(array1, array2);
+  const result = sumArray(array1, array2);
   console.log(result);
 }
 

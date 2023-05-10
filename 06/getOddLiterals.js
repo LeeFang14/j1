@@ -1,10 +1,12 @@
 export function getOddLiterals(string) {
-  let OddLiteral = [];
   const newString = string.trim(); // 去掉頭尾的空格
-  for (let index = 0; index < newString.length; index++) {
+  const charArray = newString.split(""); //單個字母存成陣列
+
+  const OddLiteralArray = charArray.filter((char, index) => {
     if (index % 2 === 0) {
-      OddLiteral.push(newString[index]);
+      return char;
     }
-  }
-  return OddLiteral.join(",");
+  });
+
+  return OddLiteralArray.join(",");
 }
