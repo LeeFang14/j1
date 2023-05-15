@@ -2,31 +2,22 @@
 //   function divi(n) 來求算當 n 值不斷除以 3 時，
 //   最少要除多少次，小數點後第 2 位會等於 0。
 
-import { askQuestion } from "./askQuestion.js";
-import { isPositiveInteger } from "../modules/verify.js";
-import { divi } from "./calculate.js";
-import { rl } from "./askQuestion.js";
+import { askQuestion, getInput } from "../utility/readlinePromise.js";
+import { validation } from "./validation.js";
+import { division } from "./calculate.js";
 
 function main() {
-  const question = askQuestion("請輸入一個正整數: ");
-  question.then((input) => {
-    getInput(input, (number) => {
-      const result = divi(number, 3);
-      console.log(`最少要除 ${result} 次`);
+  askQuestion("請輸入一個正整數: ")
+    .then((input) => {
+      getInput(input, validation, (string) => {
+        const verified = Number(string);
+        const result = division(verified, 3);
+        console.log(`最少要除 ${result} 次`);
+      });
+    })
+    .catch((error) => {
+      console.error(error);
     });
-  });
-}
-
-function getInput(input, printResult) {
-  try {
-    isPositiveInteger(input);
-    const verified = Number(input);
-    printResult(verified);
-    rl.close();
-  } catch (error) {
-    console.log(`${error.message}，請重新輸入`);
-    main();
-  }
 }
 
 main();
