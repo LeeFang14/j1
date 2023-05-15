@@ -8,59 +8,14 @@
 //    ***
 //     *
 // -------------------------------
-import { parseStringToArray } from "./parseStringToArray.js";
-import { rotateArray } from "./rotateArray.js";
-import { parseArrayToString } from "./parseArrayToString.js";
+import { rotatePattern } from "./rotatePattern.js";
+import { originString } from "./originString.js";
 
-const originString1 = `  ** **
- *******
-*********
-*********
- *******
-  *****
-   ***
-    *`;
-
-const originString2 = `***** *****
-****   ****
-***     ***
-**       **
-****   ****
-****   ****`;
-
-const originString3 = `*******
-*     *
-**   **
-**   **
-**   **
-*     *
-*******`;
-
-const originString4 = `  ***
-  ***
-  ***
-  ***     *
-  ***     **
-  ***     ***
-  ************`;
-
-const originString5 = `      *
-     ***
-    *****
-   *******
-  *********
- ***********`;
-
-function main(stringPattern) {
-  console.log("原圖:");
-  console.log(stringPattern);
-  const twoDimensionalArray = parseStringToArray(stringPattern);
-  const rotatedArray = rotateArray(twoDimensionalArray);
-  const result = parseArrayToString(rotatedArray);
-  console.log("向右轉 90° :");
-  console.log(result);
+function main() {
+  rotatePattern(originString);
+  rotatePattern(originString, "left");
+  rotatePattern(originString, "up");
+  rotatePattern(originString, "down");
 }
 
-main(originString1);
-main(originString2);
-main(originString3);
+main();
