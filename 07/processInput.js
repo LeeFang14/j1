@@ -1,20 +1,20 @@
 export function parseStringToArray(originString) {
-  const rowArray = originString.split("\n"); //字串先拆成每行一組
+  const rowArray = originString.split("\n"); // 拆成每列
   let twoDimensionalArray = [];
-  const subArrayLength = []; //要處理子陣列一樣長度，所以存每個子陣列長度
+  const columnLength = [];
 
   rowArray.forEach((row) => {
-    const charsArray = row.split(""); // 每行一組再拆裡面字串多組
-    subArrayLength.push(charsArray.length); // 每個array長度
-    twoDimensionalArray.push(charsArray);
+    const columnArray = row.split(""); // 拆成每欄
+    twoDimensionalArray.push(columnArray);
+    columnLength.push(columnArray.length); // 收集幾欄
   });
 
-  const subArrayLengthMax = Math.max(...subArrayLength); // 取子陣列最大數
+  const columnLengthMax = Math.max(...columnLength); // 取子陣列最大數
 
-  twoDimensionalArray.forEach((subArray) => {
-    if (subArray.length < subArrayLengthMax) {
-      for (let index = subArray.length; index < subArrayLengthMax; index++) {
-        subArray.push(" ");
+  twoDimensionalArray.forEach((columnArray) => {
+    if (columnArray.length < columnLengthMax) {
+      for (let index = columnArray.length; index < columnLengthMax; index++) {
+        columnArray.push(" ");
         // 以子陣列最大數，讓每一子陣列一樣
       }
     }
@@ -46,19 +46,17 @@ export function rotateDirection(array, direction) {
         rotatedArray.push(newRow);
       }
       break;
-    default:
-      console.log(`沒有"${direction}"這個選項，無法旋轉。`);
   }
   return rotatedArray;
 }
 
 export function parseArrayToString(array) {
   const rowArray = [];
-  let stringPattern;
+  let stringPattern = "";
 
-  array.forEach((subArray) => {
+  array.forEach((columnArray) => {
     let innerArray = [];
-    innerArray = subArray.join("");
+    innerArray = columnArray.join("");
     rowArray.push(innerArray);
   });
 
