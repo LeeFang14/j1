@@ -7,8 +7,8 @@ import { validation } from "./validation.js";
 import { umlEven, calculateSum } from "./calculate.js";
 
 function main() {
-  askQuestion("請輸入包含4以上的正偶數: ", validation, (number) => {
-    const verified = Number(number);
+  askQuestion("請輸入包含4以上的正偶數: ", 1, validation, (inputArray) => {
+    const verified = Number(inputArray[0]);
     const umlEvenArray = umlEven(verified);
     const result = calculateSum(umlEvenArray);
     console.log("總和: ", result);

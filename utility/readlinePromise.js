@@ -10,29 +10,14 @@ export function askQuestion(query) {
   });
 }
 
-export function getInput(input, validation, processInput) {
-  try {
-    validation(input);
-    processInput(input);
-    rl.close();
-  } catch (error) {
-    console.log(error.message);
-    askQuestion("請重新輸入: ").then((input) => {
-      getInput(input, validation, processInput);
-    });
-  }
-}
-
-export function getInputArray(
-  questionCount,
-  validation,
-  inputArray,
-  processInput
-) {
+export function getInputArray(options) {
+  const { query, questionCount, validation, processInput } = options;
+  const inputArray = [];
   let questionNumber = 1;
-
   function getNextInput() {
-    askQuestion(`第${questionNumber}個: `).then((input) => {
+    const title =
+      questionCount === 1 ? query : `${query}，第${questionNumber}個: `;
+    askQuestion(title).then((input) => {
       try {
         validation(input);
         inputArray.push(input);
@@ -49,6 +34,5 @@ export function getInputArray(
       }
     });
   }
-
   getNextInput();
 }

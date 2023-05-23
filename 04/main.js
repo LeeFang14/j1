@@ -8,8 +8,8 @@ import {
 } from "./calculate.js";
 
 function main() {
-  askQuestion("請輸入一個正整數: ", validation, (number) => {
-    const verified = Number(number);
+  askQuestion("請輸入一個正整數: ", 1, validation, (inputArray) => {
+    const verified = Number(inputArray[0]);
     const numberArray = generateSequence(verified);
     const formulaString = generateFormula(numberArray);
     console.log("算式:", formulaString);
