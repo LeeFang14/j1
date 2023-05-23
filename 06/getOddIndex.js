@@ -1,9 +1,5 @@
-export function getOddIndexValue(array) {
-  return array.filter((item, index) => index % 2 === 0);
-}
-
 export function getOddIndexLiterals(string) {
-  const newString = string.trim();
-  const charArray = newString.split("");
-  return charArray.filter((item, index) => index % 2 === 0).join(",");
+  const trimString = string.replace(/ /g, "");
+  const charArray = trimString.split("");
+  return charArray.filter((_, index) => index % 2 === 0).join(",");
 }
