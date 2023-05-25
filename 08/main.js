@@ -7,15 +7,20 @@ import { validation } from "./validation.js";
 import { division } from "./calculate.js";
 
 function main() {
-  getInputArray({
-    query: "請輸入一個正整數: ",
-    questionCount: 1,
-    validation: validation,
-    processInput: (inputArray) => {
-      const verified = Number(inputArray[0]);
-      const result = division(verified, 3);
-      console.log(`最少要除 ${result} 次`);
-    },
+  // getInputArray({
+  //   query: "請輸入一個正整數: ",
+  //   questionCount: 1,
+  //   validation: validation,
+  //   processInput: (inputArray) => {
+  //     const verified = Number(inputArray[0]);
+  //     const result = division(verified, 3);
+  //     console.log(`最少要除 ${result} 次`);
+  //   },
+  // });
+  getInputArray("請輸入一個正整數: ", 1, validation).then((inputArray) => {
+    const verified = Number(inputArray[0]);
+    const result = division(verified, 3);
+    console.log(`最少要除 ${result} 次`);
   });
 }
 

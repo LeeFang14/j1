@@ -5,21 +5,16 @@ import { validation } from "./validation.js";
 import { getOddIndexLiterals } from "./getOddIndex.js";
 
 function main() {
-  getInputArray({
-    query: "請輸入4個英文名字",
-    questionCount: 4,
-    validation: validation,
-    processInput: (inputArray) => {
-      inputArray
-        .map((item) => {
-          return getOddIndexLiterals(item);
-        })
-        .forEach((item, index) => {
-          if (index % 2 === 0) {
-            console.log(`第${index + 1}個單數個字母: ${item}`);
-          }
-        });
-    },
+  getInputArray("請輸入4個英文名字", 4, validation).then((inputArray) => {
+    inputArray
+      .map((item) => {
+        return getOddIndexLiterals(item);
+      })
+      .forEach((item, index) => {
+        if (index % 2 === 0) {
+          console.log(`第${index + 1}個單數個字母: ${item}`);
+        }
+      });
   });
 }
 main();
