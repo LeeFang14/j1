@@ -15,3 +15,4 @@ export function calculateSum(array) {
     0
   );
 }
+console.log(umlEven(4));
