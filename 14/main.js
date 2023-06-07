@@ -5,10 +5,10 @@
 //   1   1*2  2*2  4*2  8*2  上一次的結果*2，跑幾次看20分鐘有幾個
 import { getInputArray } from "../utility/readlinePromise.js";
 import { calculateTwofold } from "./calculateTwofold.js";
-import { validation } from "./validation.js";
+import { verifyInput } from "./verifyInput.js";
 
 function main() {
-  getInputArray("請輸入分鐘數(正整數): ", 1, validation).then((inputArray) => {
+  getInputArray("請輸入分鐘數(正整數): ", 1, verifyInput).then((inputArray) => {
     const minute = Number(inputArray[0]);
     const bacteria = 1;
     const twofold = calculateTwofold(20, 2); // 每經過20分鐘，細菌數增加2倍。

@@ -1,6 +1,6 @@
 import { isEmpty, isEnglish } from "../utility/verify.js";
 
-export function validation(input) {
+export function verifyInput(input) {
   isEmpty(input);
   isEnglish(input);
 }

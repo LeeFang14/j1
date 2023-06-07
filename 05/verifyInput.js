@@ -5,7 +5,7 @@ import {
   isEven,
 } from "../utility/verify.js";
 
-export function validation(input) {
+export function verifyInput(input) {
   isEmpty(input);
   isPositiveInteger(input);
   isOverNumber(input, 4);

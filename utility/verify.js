@@ -1,14 +1,14 @@
 // 沒有輸入和輸入空格會拋出錯誤
 export function isEmpty(string) {
   if (string.trim().length === 0) {
-    throw new Error("您沒有輸入");
+    throw new Error("需輸入值");
   }
 }
 
 // 輸入0會拋出錯誤
 export function isZero(string) {
   if (Number(string) === 0) {
-    throw new Error("勿輸入零");
+    throw new Error("需輸入零以外的值");
   }
 }
 

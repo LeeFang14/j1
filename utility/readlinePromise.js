@@ -10,29 +10,29 @@ export function askQuestion(query) {
   });
 }
 
-export function getInputArray(query, questionCount, validation) {
+export function getInputArray(query, questionCount, verifyInput) {
   return new Promise((resolve, reject) => {
     const inputArray = [];
     let questionNumber = 1;
 
-    function getNextInput() {
+    function getAllInput() {
       const title =
         questionCount === 1 ? query : `${query}，第${questionNumber}個: `;
       askQuestion(title)
         .then((input) => {
           try {
-            validation(input);
+            verifyInput(input);
             inputArray.push(input);
             if (questionNumber < questionCount) {
               questionNumber++;
-              getNextInput();
+              getAllInput();
             } else {
               resolve(inputArray);
               rl.close();
             }
           } catch (error) {
             console.log(`${error.message}，請重新輸入。`);
-            getNextInput();
+            getAllInput();
           }
         })
         .catch((error) => {
@@ -40,6 +40,6 @@ export function getInputArray(query, questionCount, validation) {
         });
     }
 
-    getNextInput();
+    getAllInput();
   });
 }

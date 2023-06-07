@@ -2,28 +2,28 @@ import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
 
-export function askQuestion(query, questionCount, validation, processInput) {
+export function askQuestion(query, questionCount, verifyInput, processInput) {
   const inputArray = [];
   let questionNumber = 1;
-  function getNextInput() {
+  function getAllInput() {
     const title =
       questionCount === 1 ? query : `${query}，第${questionNumber}個: `;
     rl.question(title, (input) => {
       try {
-        validation(input);
+        verifyInput(input);
         inputArray.push(input);
         if (questionNumber < questionCount) {
           questionNumber++;
-          getNextInput();
+          getAllInput();
         } else {
           processInput(inputArray);
           rl.close();
         }
       } catch (error) {
         console.log(`${error.message}，請重新輸入`);
-        getNextInput();
+        getAllInput();
       }
     });
   }
-  getNextInput();
+  getAllInput();
 }

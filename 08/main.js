@@ -3,11 +3,11 @@
 //   最少要除多少次，小數點後第 2 位會等於 0。
 
 import { getInputArray } from "../utility/readlinePromise.js";
-import { validation } from "./validation.js";
+import { verifyInput } from "./verifyInput.js";
 import { division } from "./calculate.js";
 
 function main() {
-  getInputArray("請輸入一個正整數: ", 1, validation).then((inputArray) => {
+  getInputArray("請輸入一個正整數: ", 1, verifyInput).then((inputArray) => {
     const verified = Number(inputArray[0]);
     const result = division(verified, 3);
     console.log(`最少要除 ${result} 次`);

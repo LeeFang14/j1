@@ -1,12 +1,16 @@
 // 2. 使用者輸入兩個整數，將它們分別除以3，判斷餘數是否相同，
 //    若相同，則於螢幕上顯示「餘數相同」。
 
+// 1. readline 拿到使用者輸入的值
+// 2. 驗證使用者輸入的值 ok往下->3，不行 -> 1 重問
+// 3.
+
 import { askQuestion } from "../utility/readlineCallback.js";
-import { validation } from "./validation.js";
+import { verifyInput } from "./verifyInput.js";
 import { isModEqual } from "./isModEqual.js";
 
 function main() {
-  askQuestion("請輸入2個整數", 2, validation, (inputArray) => {
+  askQuestion("請輸入2個整數", 2, verifyInput, (inputArray) => {
     const numberArray = inputArray.map((item) => {
       return Number(item);
     });
