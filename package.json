@@ -15,5 +15,8 @@
     "@babel/preset-env": "^7.21.4",
     "babel-jest": "^29.5.0",
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2"
   }
 }
