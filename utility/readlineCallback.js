@@ -15,10 +15,10 @@ export function askQuestion(query, questionCount, verifyInput, processInput) {
         if (questionNumber < questionCount) {
           questionNumber++;
           getAllInput();
-        } else {
-          processInput(inputArray);
-          rl.close();
+          return;
         }
+        processInput(inputArray);
+        rl.close();
       } catch (error) {
         console.log(`${error.message}，請重新輸入`);
         getAllInput();

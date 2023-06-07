@@ -15,8 +15,7 @@ function main() {
     const numberArray = inputArray.map((item) => {
       return Number(item);
     });
-    const [number1, number2] = numberArray;
-    const modEqualResult = isModEqual(number1, number2, 3);
+    const modEqualResult = isModEqual(numberArray[0], numberArray[1], 3);
     const result = modEqualResult ? "餘數相同" : "餘數不同";
     console.log(result);
   });

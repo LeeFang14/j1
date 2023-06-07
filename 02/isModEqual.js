@@ -1,3 +1,3 @@
-export function isModEqual(number1, number2, modNumber) {
-  return number1 % modNumber === number2 % modNumber ? true : false;
+export function isModEqual(firstNumber, secondNumber, modNumber) {
+  return firstNumber % modNumber === secondNumber % modNumber ? true : false;
 }
