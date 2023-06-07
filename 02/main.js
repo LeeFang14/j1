@@ -3,7 +3,8 @@
 
 // 1. readline 拿到使用者輸入的值
 // 2. 驗證使用者輸入的值 ok往下->3，不行 -> 1 重問
-// 3.
+// 3. 對兩數取於數並比較，回傳結果
+// 4. 印出結果
 
 import { askQuestion } from "../utility/readlineCallback.js";
 import { verifyInput } from "./verifyInput.js";
