@@ -12,9 +12,7 @@ import { rotatePattern } from "./rotatePattern.js";
 import { originString } from "./originString.js";
 
 function main() {
-  rotatePattern(originString);
-  // rotatePattern(originString, "right");
-  // rotatePattern(originString, "up");
+  rotatePattern(originString, "right", 1);
 }
 
 main();
