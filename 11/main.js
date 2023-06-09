@@ -10,13 +10,14 @@ export function main() {
   getInputArray("請輸入期數: ", 1, verifyInput).then((inputArray) => {
     const verified = Number(inputArray[0]);
     const gymFeeCalculator = calculateMember({
-      base: 500,
-      firstCostOff: 0.79,
+      baseFee: 500,
+      firstPeriodDiscount: 0.79,
       periodDiscount: 5,
-      fullCostOff: 200,
+      periodDiscountPrice: 200,
     });
     const result = gymFeeCalculator(verified);
-    console.log(`共 ${verified} 期，總金額: ${result} 元`);
+    const message = `共 ${verified} 期，總金額: ${result} 元`;
+    console.log(message);
   });
 }
 

@@ -1,12 +1,12 @@
 import { calculateMember } from "./calculate.js";
 
 describe("calculateMember", () => {
-  test("測試 calculateMember 加總後數字要正確", () => {
+  test("測試 calculateMember 計算後數字要正確", () => {
     const gymFeeCalculator = calculateMember({
-      base: 500,
-      firstCostOff: 0.79,
+      baseFee: 500,
+      firstPeriodDiscount: 0.79,
       periodDiscount: 5,
-      fullCostOff: 200,
+      periodDiscountPrice: 200,
     });
     expect(gymFeeCalculator(1)).toBe(395);
     expect(gymFeeCalculator(2)).toBe(895);

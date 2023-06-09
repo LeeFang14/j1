@@ -1,30 +1,31 @@
 /**
  * 根據會員期數和費用計算總費用
- * @param {number} base 每期費用
- * @param {number} firstCostOff 首期折扣
- * @param {number} periodDiscount 滿幾期有折扣
- * @param {number} fullCostOff 滿期折扣
- * @returns {number} 總費用
+ * @param {number} baseFee 每期費用
+ * @param {number} firstPeriodDiscount 首期折扣:幾折，沒有折扣為 0
+ * @param {number} periodDiscount 滿期折扣:幾期
+ * @param {number} periodDiscountPrice 滿期折扣金額
  */
 
 export function calculateMember(option) {
-  const { base, firstCostOff, periodDiscount, fullCostOff } = option;
+  const { baseFee, firstPeriodDiscount, periodDiscount, periodDiscountPrice } =
+    option;
   return function calculateMemberFee(number) {
-    const firstCostDiscount = base * firstCostOff;
-    const fullCostDiscount = Math.trunc(number / periodDiscount) * fullCostOff;
-    let result = firstCostDiscount;
-    let sum = base;
-    if (number === 1) {
-      return result;
-    }
-
-    let index = 2;
+    const firstPeriodDiscountPrice =
+      firstPeriodDiscount > 0 && firstPeriodDiscount < 1
+        ? baseFee * +(1 - firstPeriodDiscount).toFixed(2)
+        : 0;
+    let currentPeriod = 0;
+    let totalFee = 0;
     do {
-      result = firstCostDiscount + sum - fullCostDiscount;
-      sum += base;
-      index++;
-    } while (index <= number);
-
-    return result;
+      currentPeriod++;
+      totalFee += baseFee;
+      if (currentPeriod === 1) {
+        totalFee -= firstPeriodDiscountPrice;
+      }
+      if (currentPeriod % periodDiscount === 0) {
+        totalFee -= periodDiscountPrice;
+      }
+    } while (currentPeriod < number);
+    return totalFee;
   };
 }
