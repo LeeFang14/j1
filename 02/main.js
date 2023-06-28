@@ -1,24 +1,19 @@
-// 2. 使用者輸入兩個整數，將它們分別除以3，判斷餘數是否相同，
-//    若相同，則於螢幕上顯示「餘數相同」。
+// 2. 使用者輸入兩個整數，將它們分別除以3，判斷餘數是否相同，若相同，則於螢幕上顯示「餘數相同」。
 
-// 1. readline 拿到使用者輸入的值
-// 2. 驗證使用者輸入的值 ok往下->3，不行 -> 1 重問
-// 3. 對兩數取於數並比較，回傳結果
-// 4. 印出結果
-
-import { askQuestion } from "../utility/readlineCallback.js";
-import { verifyInput } from "./verifyInput.js";
-import { isModEqual } from "./isModEqual.js";
+import promptSync from "prompt-sync";
+import { Q2 } from "./Q2.js";
+const prompt = promptSync({ sigint: true });
 
 function main() {
-  askQuestion("請輸入2個整數", 2, verifyInput, (inputArray) => {
-    const numberArray = inputArray.map((item) => {
-      return Number(item);
-    });
-    const modEqualResult = isModEqual(numberArray[0], numberArray[1], 3);
-    const result = modEqualResult ? "餘數相同" : "餘數不同";
-    console.log(result);
-  });
+  try {
+    console.log("請輸入兩個整數");
+    const numTwoInteger = [prompt("第一個: "), prompt("第二個: ")];
+    const message = Q2(numTwoInteger);
+    console.log(message);
+  } catch (error) {
+    console.log("輸入錯誤，請重新輸入！");
+    main();
+  }
 }
 
 main();

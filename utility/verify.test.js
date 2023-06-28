@@ -28,8 +28,8 @@ describe.each([{ input: () => isZero("0"), expected: "勿輸入零" }])(
 );
 
 describe.each([
-  { input: () => isPositiveInteger(" "), expected: "需輸入正整數" },
   { input: () => isPositiveInteger(""), expected: "需輸入正整數" },
+  { input: () => isPositiveInteger(" "), expected: "需輸入正整數" },
   { input: () => isPositiveInteger("+0"), expected: "需輸入正整數" },
   { input: () => isPositiveInteger("-0"), expected: "需輸入正整數" },
   { input: () => isPositiveInteger("0.5"), expected: "需輸入正整數" },
@@ -43,9 +43,10 @@ describe.each([
   });
 });
 
+// 只能輸入正整數、負整數
 describe.each([
-  { input: () => isInteger(" "), expected: "需輸入整數" },
   { input: () => isInteger(""), expected: "需輸入整數" },
+  { input: () => isInteger(" "), expected: "需輸入整數" },
   { input: () => isInteger("+0"), expected: "需輸入整數" },
   { input: () => isInteger("-0"), expected: "需輸入整數" },
   { input: () => isInteger("0.5"), expected: "需輸入整數" },

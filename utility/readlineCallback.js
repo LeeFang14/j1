@@ -2,28 +2,34 @@ import * as readline from "node:readline";
 import { stdin as input, stdout as output } from "node:process";
 const rl = readline.createInterface({ input, output });
 
-export function askQuestion(query, questionCount, verifyInput, processInput) {
+export function askQuestion(question, countQuestion, callback, verifyInput) {
   const inputArray = [];
-  let questionNumber = 1;
-  function getAllInput() {
-    const title =
-      questionCount === 1 ? query : `${query}，第${questionNumber}個: `;
+  function getAllInput(indexQuestion) {
+    let title = titleMaker(countQuestion, question, indexQuestion);
     rl.question(title, (input) => {
       try {
         verifyInput(input);
         inputArray.push(input);
-        if (questionNumber < questionCount) {
-          questionNumber++;
-          getAllInput();
-          return;
+        if (indexQuestion < countQuestion) {
+          getAllInput(++indexQuestion);
+        } else {
+          callback(inputArray);
+          rl.close();
         }
-        processInput(inputArray);
-        rl.close();
       } catch (error) {
         console.log(`${error.message}，請重新輸入`);
-        getAllInput();
+        getAllInput(1);
       }
     });
   }
-  getAllInput();
+  getAllInput(1);
+}
+function titleMaker(questionCount, question, questionNumber) {
+  let title = "";
+  if (questionCount === 1) {
+    title = question;
+  } else {
+    title = `${question}，第${questionNumber}個: `;
+  }
+  return title;
 }
