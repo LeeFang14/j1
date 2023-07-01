@@ -8,11 +8,17 @@
 //    ***
 //     *
 // -------------------------------
-import { rotatePattern } from "./rotatePattern.js";
-import { originString } from "./originString.js";
+import { Q7 } from "./Q7.js";
+import { strOriginPattern1 } from "./originPattern.js";
 
 function main() {
-  rotatePattern(originString, "right", 1);
+  let strOriginPattern = `origin pattern : 
+${strOriginPattern1} `;
+  console.log(strOriginPattern);
+  const rotateDirection = "right";
+  const rotateNumber = 1;
+  const strNewPattern = Q7(strOriginPattern1, rotateDirection, rotateNumber);
+  console.log(strNewPattern);
 }
 
 main();

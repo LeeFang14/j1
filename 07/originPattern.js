@@ -1,4 +1,4 @@
-export const originString = `  ** **
+export const strOriginPattern1 = `  ** **
  *******
 *********
 *********
@@ -7,14 +7,14 @@ export const originString = `  ** **
    ***
     *`;
 
-export const originString1 = `***** *****
+export const strOriginPattern2 = `***** *****
 ****   ****
 ***     ***
 **       **
 ****   ****
 ****   ****`;
 
-export const originString2 = `*******
+export const strOriginPattern3 = `*******
 *     *
 **   **
 **   **
@@ -22,7 +22,7 @@ export const originString2 = `*******
 *     *
 *******`;
 
-export const originString3 = `  ***
+export const strOriginPattern4 = `  ***
   ***
   ***
   ***     *
@@ -30,7 +30,7 @@ export const originString3 = `  ***
   ***     ***
   ************`;
 
-export const originString4 = `      *
+export const strOriginPattern5 = `      *
      ***
     *****
    *******
