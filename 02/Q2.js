@@ -9,10 +9,10 @@ function verifyInput(strInput) {
 
 export function Q2(strTwoInteger) {
   const numTwoInteger = strTwoInteger.map(verifyInput);
-  const [numFirstInteger, numSecondInteger] = numTwoInteger;
+  const [firstInteger, secondInteger] = numTwoInteger;
   const divisor = 3;
   let message = "";
-  if (numFirstInteger % divisor === numSecondInteger % divisor) {
+  if (firstInteger % divisor === secondInteger % divisor) {
     message = "餘數相同";
   } else {
     message = "餘數不同";

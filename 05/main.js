@@ -10,8 +10,7 @@ function main() {
   try {
     const input = prompt("請輸入包含4以上的正偶數:");
     const orderedSequenceTotal = Q5(input);
-    const message = `總和: ${orderedSequenceTotal}`;
-    console.log(message);
+    console.log(orderedSequenceTotal);
   } catch (error) {
     console.log("輸入錯誤，請重新輸入！");
     main();

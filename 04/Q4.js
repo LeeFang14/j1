@@ -1,4 +1,14 @@
-import { isPositiveInteger } from "../utility/verify.js";
+import { isZero, isPositiveInteger } from "../utility/verify.js";
+
+export function Q4(strInput) {
+  isZero(strInput);
+  isPositiveInteger(strInput);
+  const numInput = Number(strInput);
+  const numSequence = Array.from({ length: numInput }, generateSequence);
+  const strSequence = numSequence.map(numToStr).join("");
+  const total = numSequence.map(numOddToNegative).reduce(calculateTotal);
+  return `算式: ${strSequence} , 總和: ${total}`;
+}
 
 function generateSequence(_, index) {
   return index + 1;
@@ -22,15 +32,6 @@ function numOddToNegative(item, index) {
   }
 }
 
-function calculateSum(accumulator, currentValue) {
+function calculateTotal(accumulator, currentValue) {
   return accumulator + currentValue;
-}
-
-export function Q4(strInput) {
-  isPositiveInteger(strInput);
-  const numInput = Number(strInput);
-  const numSequence = Array.from({ length: numInput }, generateSequence);
-  const strSequence = numSequence.map(numToStr).join("");
-  const numTotal = numSequence.map(numOddToNegative).reduce(calculateSum);
-  return { strSequence, numTotal };
 }
