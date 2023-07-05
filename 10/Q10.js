@@ -9,7 +9,9 @@ export function Q10(array) {
       arrPrimeIndex.push(index);
     }
   });
-  return arrPrimeValue.map((value, index) => {
-    return `質數 ${value} 索引 ${arrPrimeIndex[index]}`;
-  });
+  return arrPrimeValue
+    .map((value, index) => {
+      return `質數 ${value} 索引 ${arrPrimeIndex[index]}`;
+    })
+    .join("\n");
 }

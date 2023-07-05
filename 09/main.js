@@ -7,9 +7,9 @@
 import { Q9 } from "./Q9.js";
 
 function main() {
-  const arrFirst = [2, 3, 1, 7, 9];
-  const arrSecond = [8, 7, 9, 3, 1];
-  const sumResult = Q9(arrFirst, arrSecond);
+  const arr1 = [2, 3, 1, 7, 9];
+  const arr2 = [8, 7, 9, 3, 1];
+  const sumResult = Q9(arr1, arr2);
   console.log(sumResult);
 }
 main();

@@ -1,37 +1,37 @@
-export function Q7(strOriginPattern, strRotateDirection, numRotate) {
-  if (strRotateDirection !== "right" && strRotateDirection !== "left") {
-    console.log(`沒有 "${strRotateDirection}" 這個選項，無法旋轉。`);
+export function Q7(strOriginPattern, rotateDirection, rotateTimes) {
+  if (["right", "left"].every((dir) => rotateDirection !== dir)) {
+    console.log(`沒有 "${rotateDirection}" 這個選項，無法旋轉。`);
     return;
   } else {
-    const baseAngle = 90;
-    const rotateAngle = baseAngle * numRotate;
-    const arr2DArray = parseStrTo2DArr(strOriginPattern);
+    const arr2dOriginPattern = parseStrTo2DArr(strOriginPattern);
     const arrRotated2DArray = rotate2DArray(
-      arr2DArray,
-      strRotateDirection,
-      numRotate
+      arr2dOriginPattern,
+      rotateDirection,
+      rotateTimes
     );
     const strNewPattern = parseArrToStr(arrRotated2DArray);
-    return `turn ${strRotateDirection} ${rotateAngle}° :
+    const baseAngle = 90;
+    const rotateAngle = baseAngle * rotateTimes;
+    return `turn ${rotateDirection} ${rotateAngle}° :
 ${strNewPattern}`;
   }
 }
 
-function parseStrTo2DArr(String) {
-  const arrAow = String.split("\n");
-  const numMaxLengthColumn = Math.max(...arrAow.map((row) => row.length));
-  const arr2DArray = arrAow
-    .map((row) => row.padEnd(numMaxLengthColumn, " "))
-    .map((row) => row.split(""));
-  return arr2DArray;
+function parseStrTo2DArr(str) {
+  const arrRow = str.split("\n");
+  return arrRow.map((row, index, array) => {
+    const maxLengthRow = Math.max(...array.map((row) => row.length));
+    const r = row.padEnd(maxLengthRow, " ");
+    r.split("");
+    return r;
+  });
 }
 
-function rotate2DArray(arr2DArray, direction, numRotate) {
-  let rotated2DArray = arr2DArray;
-  for (let currentRotate = 0; currentRotate < numRotate; currentRotate++) {
-    rotated2DArray = rotateArray(rotated2DArray, direction);
+function rotate2DArray(originPattern, direction, rotateTimes) {
+  for (let currentRotate = 0; currentRotate < rotateTimes; currentRotate++) {
+    originPattern = rotateArray(originPattern, direction);
   }
-  return rotated2DArray;
+  return originPattern;
 }
 
 function parseArrToStr(array) {
@@ -59,6 +59,7 @@ function rotateArray(arr2DArray, rotateDirection) {
   return arrRotated2DArray;
 }
 
+// 這邊要把兩個寫在一起，turnRight、turnLeft第二層迴圈
 function turnRight(arr2DArray, numRowCount, numColumnCount, arrRotated2DArray) {
   for (let columnIndex = 0; columnIndex < numColumnCount; columnIndex++) {
     const newRow = [];

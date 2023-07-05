@@ -5,8 +5,8 @@ export function Q8(strInput) {
   isPositiveInteger(strInput);
   const numInput = Number(strInput);
   const divisor = 3;
-  const division = createDivision();
-  return `最少要除 ${division(numInput, divisor)} 次`;
+  const divisionByThree = createDivision();
+  return `最少要除 ${divisionByThree(numInput, divisor)} 次`;
 }
 
 function createDivision() {

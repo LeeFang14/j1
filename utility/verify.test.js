@@ -71,18 +71,6 @@ describe.each([
   });
 });
 
-// describe.each([
-//   { input: () => isLengthEqualNumber("-1", 4), expected: "需輸入大於4的數字" },
-//   { input: () => isLengthEqualNumber("0", 4), expected: "需輸入大於4的數字" },
-//   { input: () => isLengthEqualNumber("1", 4), expected: "需輸入大於4的數字" },
-//   { input: () => isLengthEqualNumber("2", 4), expected: "需輸入大於4的數字" },
-//   { input: () => isLengthEqualNumber("3", 4), expected: "需輸入大於4的數字" },
-// ])("測試 isLengthEqualNumber 輸入的值", ({ input, expected }) => {
-//   test(`returns ${expected}`, () => {
-//     expect(input).toThrow(expected);
-//   });
-// });
-
 describe.each([
   { input: () => isEven("1"), expected: "需輸入偶數" },
   { input: () => isEven("3"), expected: "需輸入偶數" },

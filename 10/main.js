@@ -5,7 +5,7 @@ import { Q10 } from "./Q10.js";
 
 function main() {
   const array = [3, 50, 0, 13, 2, 4, 11];
-  const primeResult = Q10(array).join("\n");
+  const primeResult = Q10(array);
   console.log(primeResult);
 }
 

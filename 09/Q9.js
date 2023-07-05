@@ -1,29 +1,29 @@
-export function Q9(arrFirst, arrSecond) {
-  if (arrFirst.length === arrSecond.length) {
-    return `相加後的陣列: ${sumArray(arrFirst, arrSecond)}`;
+export function Q9(arr1, arr2) {
+  if (arr1.length === arr2.length) {
+    return `相加後的陣列: ${sumArray(arr1, arr2)}`;
   } else {
-    const arrFirstShorter = arrFirst.length < arrSecond.length;
+    const isArr1LengthShorter = arr1.length < arr2.length;
     let filledArray = [];
-    if (arrFirstShorter) {
-      filledArray = fillShorterArray(arrFirst, arrSecond.length);
-      return `相加後的陣列: ${sumArray(filledArray, arrSecond)}`;
+    if (isArr1LengthShorter) {
+      filledArray = fillShorterArray(arr1, arr2.length);
+      return `相加後的陣列: ${sumArray(filledArray, arr2)}`;
     } else {
-      filledArray = fillShorterArray(arrSecond, arrFirst.length);
-      return `相加後的陣列: ${sumArray(arrFirst, filledArray)}`;
+      filledArray = fillShorterArray(arr2, arr1.length);
+      return `相加後的陣列: ${sumArray(arr1, filledArray)}`;
     }
   }
 }
 
-function sumArray(arrFirst, arrSecond) {
-  return arrFirst.reduce((accumulator, currentValue, currentIndex) => {
-    accumulator.push(currentValue + arrSecond[currentIndex]);
+function sumArray(arr1, arr2) {
+  return arr1.reduce((accumulator, currentValue, currentIndex) => {
+    accumulator.push(currentValue + arr2[currentIndex]);
     return accumulator;
   }, []);
 }
 
-function fillShorterArray(arrShorter, arrayLength) {
-  const arrFilled = [...arrShorter];
-  arrFilled.length = arrayLength;
-  arrFilled.fill(0, arrShorter.length);
-  return arrFilled;
+function fillShorterArray(shorterArray, maxLength) {
+  const filledArray = [...shorterArray];
+  filledArray.length = maxLength;
+  filledArray.fill(0, shorterArray.length);
+  return filledArray;
 }
