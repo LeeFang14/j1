@@ -3,16 +3,19 @@
 // 1. 拿到使用者輸入的值(string)，ex. AabBc
 // 2. 把該值(string)切開並轉成charCode 回傳新陣列，ex. ["A","a","b","B",c] => [ 65, 97, 98, 66, 99 ]
 // 3. 平移字母位置charCode，轉成字母值，並回傳字串。
-import { getInputArray } from "../utility/readlinePromise.js";
-import { verifyInput } from "./verifyInput.js";
-import { caesarCipher } from "./processInput.js";
+
+import { askQuestion } from "../utility/prompt.js";
+import { Q16 } from "./Q16.js";
 
 function main() {
-  getInputArray("請輸入5個英文字母: ", 1, verifyInput).then((inputArray) => {
-    const verified = inputArray[0];
-    const result = caesarCipher(verified, 3);
-    console.log(`${verified} 加密結果: ${result}`);
-  });
+  try {
+    const fiveEnglishLiteral = askQuestion("請輸入五個英文字母: ");
+    const result = Q16(fiveEnglishLiteral);
+    console.log(result);
+  } catch (error) {
+    console.log(`${error.message},請重新輸入`);
+    main();
+  }
 }
 
 main();
