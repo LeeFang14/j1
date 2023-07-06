@@ -1,12 +1,20 @@
-/**
- * 根據會員期數和費用計算總費用
- * @param {number} baseFee 每期費用
- * @param {number} firstPeriodDiscount 首期折扣:幾折，沒有折扣為 0
- * @param {number} periodDiscount 滿期折扣:幾期
- * @param {number} periodDiscountPrice 滿期折扣金額
- */
+import { isZero, isPositiveInteger } from "../utility/verify.js";
 
-export function calculateMember(option) {
+export function Q11(strInput) {
+  isZero(strInput);
+  isPositiveInteger(strInput);
+  const numInput = Number(strInput);
+  const gymFeeCalculator = calculateMember({
+    baseFee: 500,
+    firstPeriodDiscount: 0.79,
+    periodDiscount: 5,
+    periodDiscountPrice: 200,
+  });
+  const result = gymFeeCalculator(numInput);
+  return `共 ${numInput} 期，總金額: ${result} 元`;
+}
+
+function calculateMember(option) {
   const { baseFee, firstPeriodDiscount, periodDiscount, periodDiscountPrice } =
     option;
   return function calculateMemberFee(number) {

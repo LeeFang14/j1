@@ -4,11 +4,9 @@
 
 // 對題目理解，每次搬都會判斷會不會超重，會超重時那一個就不會上車並直接停止。
 // (不會再去找符合剩餘重量內的器材，即不會讓總重最接近或等於限重)
-// 1. 設定各器材數值
-// 2. 寫亂數
-// 3. 印出結果
 
-import { random } from "./random.js";
+import { Q15 } from "./Q15.js";
+console.log();
 
 function main() {
   const sportList = [
@@ -16,14 +14,8 @@ function main() {
     { toolName: "單槓", weight: 20, unit: "箱" },
     { toolName: "跑步機", weight: 50, unit: "台" },
   ];
-
-  const { sport, totalWeight } = random(sportList, 1000);
-  const output = sportList
-    .map(({ toolName, unit }, index) => {
-      return `${toolName}: ${sport[index]} ${unit}`;
-    })
-    .join(", ");
-  const message = `${output} ,總重 ${totalWeight} KG`;
+  const weightLimit = 1000;
+  const message = Q15(sportList, weightLimit);
   console.log(message);
 }
 

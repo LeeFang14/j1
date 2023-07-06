@@ -5,15 +5,12 @@
 // 2. 找出各質數1~100的倍數
 // 3. 篩選各質數大於1小於100值
 
-import { getPrimeArray, getMultiplyArray } from "./processNumber.js";
+import { Q12 } from "./Q12.js";
 
 function main() {
-  const primeArray = getPrimeArray(10, 20);
-  primeArray.forEach((item) => {
-    const MultiplyArray = getMultiplyArray(item, 1, 100);
-    const filterArray = MultiplyArray.filter((item) => item <= 100);
-    const message = `質數 "${item}" 乘1~100後，大於1小於100的值: ${filterArray} `;
-    console.log(message);
-  });
+  const startNumber = 10;
+  const endNumber = 20;
+  const result = Q12(startNumber, endNumber);
+  console.log(result);
 }
 main();

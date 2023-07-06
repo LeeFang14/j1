@@ -2,12 +2,7 @@
 //     兔子故意用每跑5秒鐘後退1公尺的方式來挑釁烏龜，
 //     請問兔子在途中還可以偷懶休息幾秒鐘再繼續跑並且贏得比賽 ?
 
-// 1. 先算出1公尺需幾秒
-// 2. 算出1000公尺需要幾秒
-// 2. 兔子倒退的那1公尺，需要再加上倒退的時間。
-// 3. 結果：取得相減值(絕對值不用管誰減誰)，判斷少的(快)為結果印出。
-
-import { calculateRaceTime } from "./calculateRaceTime.js";
+import { Q13 } from "./Q13.js";
 
 function main() {
   const raceLength = 1000;
@@ -22,20 +17,8 @@ function main() {
     costTime: 0,
   };
 
-  rabbit.costTime = calculateRaceTime(
-    rabbit.speed,
-    raceLength,
-    rabbit.backSpeed
-  );
-  turtle.costTime = calculateRaceTime(
-    turtle.speed,
-    raceLength,
-    turtle.backSpeed
-  );
-  const timeDifference = Math.abs(rabbit.costTime - turtle.costTime).toFixed(2);
-  const fasterAnimal = rabbit.costTime < turtle.costTime ? "兔子" : "烏龜";
-  const message = `${fasterAnimal} 可以再偷懒 ${timeDifference} 秒`;
-  console.log(message);
+  const result = Q13(rabbit, turtle, raceLength);
+  console.log(result);
 }
 
 main();
