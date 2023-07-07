@@ -15,35 +15,35 @@ describe("測試 Q16 會輸出", () => {
   });
 });
 
-describe("測試 Q5 會拋出異常", () => {
+describe("測試 Q16 會拋出異常", () => {
   test("無輸入", () => {
-    expect(() => Q5("")).toThrow();
+    expect(() => Q16("")).toThrow();
   });
   test("輸入空格", () => {
-    expect(() => Q5(" ")).toThrow();
+    expect(() => Q16(" ")).toThrow();
   });
   test("輸入+0", () => {
-    expect(() => Q5("+0")).toThrow();
+    expect(() => Q16("+0")).toThrow();
   });
   test("輸入-0", () => {
-    expect(() => Q5("-0")).toThrow();
+    expect(() => Q16("-0")).toThrow();
   });
   test("輸入0.5", () => {
-    expect(() => Q5("0.5")).toThrow();
+    expect(() => Q16("0.5")).toThrow();
   });
   test("輸入-5", () => {
-    expect(() => Q5("-5")).toThrow();
+    expect(() => Q16("-5")).toThrow();
   });
   test("輸入中文", () => {
-    expect(() => Q5("中文")).toThrow();
+    expect(() => Q16("中文")).toThrow();
   });
   test("輸入english", () => {
-    expect(() => Q5("english")).toThrow();
+    expect(() => Q16("english")).toThrow();
   });
   test("輸入不足5位數的值", () => {
-    expect(() => Q5("aaaa")).toThrow();
+    expect(() => Q16("aaaa")).toThrow();
   });
   test("輸入超過5位數的值", () => {
-    expect(() => Q5("aaaaaa")).toThrow();
+    expect(() => Q16("aaaaaa")).toThrow();
   });
 });
