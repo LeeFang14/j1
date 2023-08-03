@@ -3,16 +3,9 @@
 //             0,1不是質數，2是所有質數中唯一偶數。
 
 export function isPrime(number) {
-  if (number === 0 || number === 1) {
-    return false;
-  } else if (number === 2) {
-    return true;
-  }
-
+  if (number < 2) return;
   for (let i = 2; i <= Math.sqrt(number); i++) {
-    if (number % i === 0) {
-      return false;
-    }
+    if (number % i === 0) return;
   }
   return true;
 }

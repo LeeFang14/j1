@@ -6,9 +6,9 @@ export function isEmpty(string) {
 }
 
 // 輸入0會拋出錯誤
-export function isZero(string) {
+export function isZero(string, message = "需輸入零以外的值") {
   if (Number(string) === 0) {
-    throw new Error("需輸入零以外的值");
+    throw new Error(message);
   }
 }
 
