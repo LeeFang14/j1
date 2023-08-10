@@ -6,46 +6,16 @@
 // 第3順位    2     4     4     2
 // 第4順位    4     1     1     1
 
-// 先把上面的原始資料寫成陣列後，
-// const originalScore = [
-//   [51, 1, 3, 2, 4],
-//   [5, 3, 2, 4, 1],
-//   [23, 2, 3, 4, 1],
-//   [21, 4, 3, 2, 1],
-// ];
-// mapping成下面的資料，再去作後續處理：
-// candidateList = [
-//   { candidateNumber: 1, orderResult: [1, 4, 4, 4], score: number },
-//   { candidateNumber: 2, orderResult: [3, 2, 1, 3], score: number },
-//   { candidateNumber: 3, orderResult: [2, 1, 2, 2], score: number },
-//   { candidateNumber: 4, orderResult: [4, 3, 3, 1], score: number },
-// ];
-
 import { Q17 } from "./Q17module.js";
 
 function main() {
-  // 原始資料：每輪票數與順位，index剛好是投票名次。
-  const originalScore = [
-    [51, 1, 3, 2, 4],
-    [5, 3, 2, 4, 1],
-    [23, 2, 3, 4, 1],
-    [21, 4, 3, 2, 1],
+  const originalVoting = [
+    { votes: 51, order: [1, 3, 2, 4] },
+    { votes: 5, order: [3, 2, 4, 1] },
+    { votes: 23, order: [2, 3, 4, 1] },
+    { votes: 21, order: [4, 3, 2, 1] },
   ];
-
-  class Candidate {
-    constructor(name) {
-      this.name = name;
-    }
-  }
-
-  const candidateList = [
-    new Candidate(1),
-    new Candidate(2),
-    new Candidate(3),
-    new Candidate(4),
-  ];
-
-  const result = Q17(originalScore, candidateList);
+  const result = Q17(originalVoting);
   console.log(result);
 }
 
