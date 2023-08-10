@@ -9,9 +9,9 @@ function main() {
     const input = askQuestion("請輸入看電影人數: ");
     const stateMoviePlaying = Q1(input);
     console.log(stateMoviePlaying);
-    a = Q1(input);
   } catch (error) {
     console.log(error.message, "請重新輸入");
     main();
   }
 }
+main();
