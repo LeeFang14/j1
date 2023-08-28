@@ -23,12 +23,10 @@ export function Q17(votingList) {
     return (candidate.totalScore = candidate.eachScore.reduce(sumScore, 0));
   });
 
-  console.log("candidateList", candidateList);
-
   return candidateList
     .map((candidate) => {
       const eachScore = candidate.eachScore.join("分+");
-      return `候選人「${candidate.name}」每輪分數:${eachScore}分=總得分數${candidate.totalScore}分`;
+      return `候選人「${candidate.name}」每個順位分數:${eachScore}分=總得分數${candidate.totalScore}分`;
     })
     .join("\n");
 }
