@@ -1,17 +1,15 @@
 # node.js 程式練習
 
-## 練習說明:
+## 練習說明：
+在瀏覽器以外的環境(node.js)執行JavaScript。
 
-```
-環境: node.js
-步驟:
+## 使用套件：
+1. node.js
+2. [npm library prompt：prompt-sync](https://www.npmjs.com/package/prompt-sync)
+3. [Jest · 🃏 Delightful JavaScript Testing](https://jestjs.io/)
+4. [Babel · Babel](https://babeljs.io/)
 
-1. 開新分支，用自己的英文名字命名
-2. 每一題 (每一個 h3 都是獨立的一題) 都要回答，包含印出計算過程
-3. 答完貼出自己的 source code 與執行結果
-```
-
-## 第一階段
+## 題目：
 
 ### 1. 好想電影院規定除非完全沒有客人買票，否則就算只有一位顧客也照常播放電影。讓使用者輸入客人的人數，並用「!」判斷人數，不為零顯示「照常播放電影」。
 
@@ -22,13 +20,11 @@
 ### 4. 輸入 n 印出 `1+2-3+4-5+6...n` 的算式與總和
 
 ### 5. 寫一個遞迴函數 `function umleven(n)` 來求算 `2*4 + 4*6 + 6*8...+(n-2)*n`
-
 (n 最小為 4, 只會出現偶數)
 
 ### 6. 宣告陣列 `name`，讓使用者自行輸入四個英文名字於陣列中，輸出第一個和第三個名字的單數個字母。
 
 ### 7. 印出下圖，並轉 90°
-
 ```
   ** **
  *******
@@ -69,239 +65,3 @@
 (第一順位得 4 分、第二順位得 3 分、第三順位得 2 分、第四順位得 1 分)
 
 ![](https://i.imgur.com/rWpuyyk.png)
-
-## 第二階段
-
-回答以下問題的 `console.log` 印出了什麼
-要解釋執行結果為什麼是這樣。
-
-### 問題 1
-
-```javascript
-var b = 1;
-
-console.log(b);
-a();
-console.log(b);
-
-var a = function () {
-  console.log(b);
-  b = 3;
-};
-```
-
-### 問題 2
-
-```javascript=
-var b = 1;
-
-console.log(b);
-a();
-console.log(b);
-
-function a() {
-  console.log(b);
-  var b = 2;
-}
-```
-
-### 問題 3
-
-`function a1`加了一個`if`
-
-```javascript=
-var b = 1;
-
-console.log(b);
-a();
-console.log(b);
-
-function a() {
-  if (1) {
-    console.log(b);
-    var b = 4;
-  }
-  console.log(b);
-  var b = 2;
-}
-```
-
-### 問題 4
-
-`var`改用`let`
-
-```javascript=
-var b = 1;
-
-console.log(b);
-a();
-console.log(b);
-
-function a() {
-  if (1) {
-    console.log(b);
-    let b = 4;
-  }
-  console.log(b);
-  var b = 2;
-}
-```
-
-### 問題 5
-
-`var`, `let`, `const`的差別??
-
-```javascript=
-var a = 1;
-var a = 10;
-console.log(a);
-```
-
-```javascript=
-//ES6
-let b = 2;
-let b = 20;
-//b = 30;
-console.log(b);
-```
-
-```javascript=
-//ES6
-const c = 3;
-const c = 30;
-// c = 20;
-console.log(c);
-```
-
-### 問題 6
-
-function name 的用途。
-
-```javascript=
-var a = function b() {
-  console.log('c');
-}
-
-a();
-b();
-```
-
-### 問題 7
-
-```javascript=
-function b() {
-  console.log('c');
-}
-
-var a = b();
-
-b();
-a();
-```
-
-### 問題 8
-
-What is `this`？
-console.log(); 印出什麼呢？
-
-```javascript=
-var c = {
-  name: 'The c object',
-  log: function(){
-    var self = this;
-    log1 = function () {
-      console.log(self);
-      console.log(this);
-    }
-    this.log2 = function (){
-      console.log(self === this);
-  }
-  log1();
-  this.log2();
-  }
-}
-
-c.log();
-```
-
-[出處](http://disp.cc/b/11-9KhD)
-
-### 問題 9
-
-```javascript=
-function getPerson() {
-  return
-  {
-    firstname: 'Knuckles'
-  }
-}
-
-console.log(getPerson());
-```
-
-### 問題 10
-
-有一個`J()`的`constructor`
-
-```javascript=
-function J() {
-  this.name = "John";
-}
-
-var a = new J();
-a
-//J {name: "John"}
-a.__proto__.constructor
-//function J() {
-//  this.name = "John";
-// }
-J
-// function J() {
-//   this.name = "John";
-// }
-console.log(J.constructor);
-console.log(a.__proto__.__proto__.constructor);
-```
-
-最下面的`console.log()`會印什麼？
-
-### 問題 11
-
-會不會執行`console.log("Hello");`?
-
-```javascript=
-var x = 10;
-switch(x) {
-    case "10":
-    console.log("Hello");
-}
-```
-
-### 問題 12
-
-請問會印出什麼
-
-```javascript=
-var i = 10;
-while(i --> 0) {
-  console.log(i);
-}
-```
-
-### 問題 13
-
-```javascript=
-var a = [1, 2, 3]
-
-function foo(x) {
-    x.push(4)
-
-    x = [4, 5, 6]
-    x.push(7)
-}
-
-foo(a)
-console.log(a)
-```
-
-第二階段題目出處: https://hackmd.io/p/BJzOOmVkW#/
